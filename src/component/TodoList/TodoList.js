@@ -20,7 +20,7 @@ class TodoList extends Component {
     }
 
     onhandleBtnClick() {
-        if(this.state.inputValue !== '') {
+        if (this.state.inputValue !== '') {
             this.setState({
                 list: [...this.state.list, this.state.inputValue],
                 inputValue: ''
@@ -30,14 +30,14 @@ class TodoList extends Component {
 
     onhandleInputChange(e) {
         this.setState({
-            inputValue:e.target.value
+            inputValue: e.target.value
         })
     }
 
     onhandelDeleteItem(index) {
         //ES6使用扩展运算符（...）拷贝数组
         const list = [...this.state.list];
-        list.splice(index,1);
+        list.splice(index, 1);
         //这里也可以写成this.setState({list：list})
         this.setState({list});
     }
@@ -48,10 +48,10 @@ class TodoList extends Component {
             this.state.list.map((item, index) => {
                 return (
                     <TodoItem
-                        key = { index }
-                        content = { item }
-                        deleteItem = { this.onhandelDeleteItem }
-                        index = { index }
+                        key={ index }
+                        content={ item }
+                        deleteItem={ this.onhandelDeleteItem }
+                        index={ index }
                     />
                 );
             })
@@ -62,7 +62,7 @@ class TodoList extends Component {
         return (
             <Fragment>
                 <div>
-                    <input value={ this.state.inputValue } onChange={ this.onhandleInputChange } />
+                    <input value={ this.state.inputValue } onChange={ this.onhandleInputChange }/>
                     <button onClick={ this.onhandleBtnClick }>add</button>
                 </div>
                 <ul>{ this.getTodoListItems() }</ul>
